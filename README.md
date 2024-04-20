@@ -4,7 +4,7 @@ Pre-requisitos pra rodar:
 - Java version 21
 
 ### 1 - Clone esse repositorio
-https://github.com/DgSantos017/restaurant
+https://github.com/melmonfre/simplepdv-back/
 ![image](https://github.com/DgSantos017/restaurant/assets/62971277/2fd0ab71-e709-475b-9708-56d53e2ac247)
 
 
