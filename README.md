@@ -19,6 +19,16 @@ https://github.com/melmonfre/simplepdv-back/
 
 ![image](https://github.com/DgSantos017/restaurant/assets/62971277/f6c178d8-61fc-41d5-a4ad-ea0594b91b72)
 
+### Padrão de Commit com Emoji
+### Usar emojis nos commits pode tornar mais fácil identificar o propósito ou intenção de cada commit. Aqui estão alguns exemplos de como você pode fazer isso:
+
+✨ :sparkles: para uma nova funcionalidade
+🐛 :bug: quando corrigir um bug
+📝 :memo: ao escrever documentação
+🚀 :rocket: para melhorias de desempenho
+✅ :white_check_mark: ao adicionar testes
+♻️ :recycle: ao refatorar código
+
 
 ### consumers
 -> Camada para o caso for necessário consumir algo externo
