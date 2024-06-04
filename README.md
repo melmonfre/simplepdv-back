@@ -56,6 +56,8 @@ https://github.com/melmonfre/simplepdv-back/
 ### validations
 -> Camada para validar/tratar dados e se preciso suas exceções
 
+teste
+
 
 
 
