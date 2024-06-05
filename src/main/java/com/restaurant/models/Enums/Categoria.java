@@ -1,0 +1,29 @@
+package com.restaurant.models.Enums;
+
+public enum Categoria {
+    // CATEGORIA DE PRODUTOS
+    LANCHE,
+    MARMITA,
+    PIZZA,
+    REFEICAO,
+    PORCOES,
+    SOBREMESA,
+    REFRIGERANTE350ML,
+    REFRIGERANTE1L,
+    REFRIGERANTE2L,
+    SUCO,
+    CERVEJA300ML,
+    CERVEJA600ML,
+
+    //CATEGORIAS DE INSUMOS
+    BEBIDAS,
+    CARNES,
+    CONDIMENTOS,
+    EMBALAGENS,
+    FRIOS,
+    LEITEEDERIVADOS,
+    LIQUIDOS,
+    MASSAS,
+    VERDURAS
+
+}
