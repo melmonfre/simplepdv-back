@@ -5,15 +5,22 @@ import com.restaurant.models.Enums.Medida;
 import jakarta.persistence.*;
 import lombok.Data;
 
-
-
+@Entity
+@Table (name = "insumers")
 @Data
 public class IsumersEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column
     private double preco;
+    @Column
     private String nome;
+    @Column
     @Enumerated(EnumType.STRING)
     private Medida medida;
+    @Column
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
