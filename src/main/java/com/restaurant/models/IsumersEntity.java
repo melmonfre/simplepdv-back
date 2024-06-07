@@ -12,7 +12,7 @@ public class IsumersEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column
     private double preco;
     @Column
