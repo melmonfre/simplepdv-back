@@ -17,17 +17,24 @@ public class ProductsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+    @Column(name = "preco_custo")
     private double precoCusto;
+    @Column(name = "preco_venda")
     private double precoVenda;
-    @ManyToMany
+    // Relação Many To Many (muitos ingredientes para muitos produtos)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "products_insumers",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "insumer_id")
     )
-    private List<IsumersEntity> ingredientes = new ArrayList<>();
+    private List<InsumersEntity> ingredientes = new ArrayList<>();
     @Enumerated(EnumType.STRING)
     private Medida medida;
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
+
+    public void addIngrediente(InsumersEntity insumersEntity) {
+        this.ingredientes.add(insumersEntity);
+    }
 }

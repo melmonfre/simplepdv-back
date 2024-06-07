@@ -8,7 +8,7 @@ import lombok.Data;
 @Entity
 @Table (name = "insumers")
 @Data
-public class IsumersEntity {
+public class InsumersEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,5 +23,8 @@ public class IsumersEntity {
     @Column
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
+
+    private Integer quantidade;
+
 
 }
