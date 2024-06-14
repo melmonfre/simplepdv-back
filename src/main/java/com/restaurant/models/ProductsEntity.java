@@ -15,7 +15,7 @@ public class ProductsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String nome;
     @Column(name = "preco_custo")
     private double precoCusto;

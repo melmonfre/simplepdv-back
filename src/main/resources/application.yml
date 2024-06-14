@@ -5,7 +5,6 @@ spring:
     username: test123
     password: test123
 
-
   h2:
     console:
       enabled: true

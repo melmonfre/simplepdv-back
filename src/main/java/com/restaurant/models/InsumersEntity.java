@@ -12,19 +12,13 @@ public class InsumersEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column
+    private Long id;
     private double preco;
-    @Column
     private String nome;
-    @Column
     @Enumerated(EnumType.STRING)
     private Medida medida;
-    @Column
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
-
     private Integer quantidade;
-
 
 }
