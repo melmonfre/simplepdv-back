@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver  # Exemplo com MySQL
+    url: jdbc:postgresql://localhost:5432/pdv
+    username:  #nome do usuario do banco
+    password:  #senha do usuario do banco
