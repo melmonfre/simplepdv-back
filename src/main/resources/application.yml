@@ -1,11 +1,6 @@
 spring:
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:restaurant
-    username: test123
-    password: test123
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-
+  profiles:
+    active: test  # Para utilizar o perfil de testes (com h2) basta alterar para "test", se quiser utilizar em produção (postgres) altere para "prod"
+  flyway:
+    enabled: true
+    validate-on-migrate: true

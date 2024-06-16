@@ -8,16 +8,33 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Entity
+@Table(name = "products")
 @Data
 public class ProductsEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
+    @Column(name = "preco_custo")
     private double precoCusto;
+    @Column(name = "preco_venda")
     private double precoVenda;
-    private List<IsumersEntity> ingredientes = new ArrayList<>();
+    // Relação Many To Many (muitos ingredientes para muitos produtos)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "products_insumers",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "insumer_id")
+    )
+    private List<InsumersEntity> ingredientes = new ArrayList<>();
     @Enumerated(EnumType.STRING)
     private Medida medida;
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
+
+    public void addIngrediente(InsumersEntity insumersEntity) {
+        this.ingredientes.add(insumersEntity);
+    }
 }
