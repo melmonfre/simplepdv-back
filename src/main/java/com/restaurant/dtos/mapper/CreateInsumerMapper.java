@@ -8,5 +8,5 @@ import org.mapstruct.Mapper;
 public interface CreateInsumerMapper {
     CreateInsumerDTO insumerEntityToInsumerDTO (InsumersEntity insumersEntity);
 
-    InsumersEntity createInsumerDtoToModel (CreateInsumerDTO createInsumerDTO);
+    InsumersEntity insumerDtoToInsumerEntity (CreateInsumerDTO createInsumerDTO);
 }
