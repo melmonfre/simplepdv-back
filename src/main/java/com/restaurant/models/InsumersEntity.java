@@ -1,8 +1,5 @@
 package com.restaurant.models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.restaurant.models.Enums.Categoria;
 import com.restaurant.models.Enums.Medida;
 import jakarta.persistence.*;
@@ -24,6 +21,4 @@ public class InsumersEntity {
     private Categoria categoria;
     private Integer quantidade;
 
-    @ManyToMany(mappedBy = "ingredientes")
-    private List<ProductsEntity> products = new ArrayList<>();
 }

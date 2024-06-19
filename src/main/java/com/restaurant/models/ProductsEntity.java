@@ -28,7 +28,6 @@ public class ProductsEntity {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "insumer_id")
     )
-    
     private List<InsumersEntity> ingredientes = new ArrayList<>();
     @Enumerated(EnumType.STRING)
     private Medida medida;

@@ -1,13 +1,16 @@
 package com.restaurant.services.useCases;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.restaurant.dtos.CreateProductDTO;
 import com.restaurant.dtos.mapper.CreateProductMapper;
+import com.restaurant.models.InsumersEntity;
 import com.restaurant.models.ProductsEntity;
 import com.restaurant.repositories.InsumersRepository;
 import com.restaurant.repositories.ProductsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ProductUseCase {
@@ -18,22 +21,24 @@ public class ProductUseCase {
     @Autowired
     private InsumersRepository insumersRepository;
 
-    public CreateProductDTO create(CreateProductDTO createProductDTO){
-        try{
+    public CreateProductDTO create(CreateProductDTO createProductDTO) {
+        try {
+            List<InsumersEntity> insumersEntityList = new ArrayList<>();
 
-            
+            createProductDTO.ingredientes().forEach(insumer -> {
+                if (insumer.getId() != null) {
+                    insumer = insumersRepository.findById(insumer.getId()).orElseThrow(() -> new RuntimeException("Insumo não encontrado"));
+                }
+                insumersEntityList.add(insumer);
+            });
+
             ProductsEntity productsEntity = this.createProductMapper.productDtoToProductEntity(createProductDTO);
+            productsEntity.setIngredientes(insumersEntityList);
 
-            var productSaved = this.productsRepository.save(productsEntity);
+            return this.createProductMapper.productEntityToProductDTO(productsRepository.save(productsEntity));
 
-            CreateProductDTO productDTO = this.createProductMapper.productEntityToProductDTO(productSaved); 
-
-            return productDTO;
-
-        }catch(RuntimeException exception){
+        } catch (RuntimeException exception) {
             throw new RuntimeException(exception);
         }
-         
     }
-    
 }
