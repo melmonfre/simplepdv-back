@@ -1,4 +1,4 @@
-package com.restaurant.services.useCases;
+package com.restaurant.services;
 
 import com.restaurant.dtos.CreateProductDTO;
 import com.restaurant.dtos.mapper.CreateProductMapper;
@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @Service
-public class ProductUseCase {
+public class productService {
     @Autowired
     private ProductsRepository productsRepository;
     @Autowired

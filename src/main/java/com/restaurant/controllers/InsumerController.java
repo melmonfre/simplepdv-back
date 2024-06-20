@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restaurant.dtos.CreateInsumerDTO;
-import com.restaurant.services.useCases.InsumerUseCase;
+import com.restaurant.services.InsumerService;
 
 @RestController
 @RequestMapping("/insumer")
 public class InsumerController {
    
     @Autowired
-    private InsumerUseCase insumerUseCase;
+    private InsumerService insumerService;
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody @Validated CreateInsumerDTO createInsumerDTO){
        
         try {
-            CreateInsumerDTO result = this.insumerUseCase.create(createInsumerDTO);
+            CreateInsumerDTO result = this.insumerService.create(createInsumerDTO);
             return ResponseEntity.ok().body(result);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());

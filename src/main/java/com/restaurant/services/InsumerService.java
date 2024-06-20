@@ -1,4 +1,4 @@
-package com.restaurant.services.useCases;
+package com.restaurant.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import com.restaurant.models.InsumersEntity;
 import com.restaurant.repositories.InsumersRepository;
 
 @Service
-public class InsumerUseCase {
+public class InsumerService {
 
         @Autowired
         private InsumersRepository insumersRepository;
