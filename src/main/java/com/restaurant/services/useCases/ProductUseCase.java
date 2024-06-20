@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 public class ProductUseCase {
     @Autowired
@@ -23,16 +24,20 @@ public class ProductUseCase {
 
     public CreateProductDTO create(CreateProductDTO createProductDTO) {
         try {
+            ProductsEntity productsEntity = this.createProductMapper.productDtoToProductEntity(createProductDTO);
+
+            if(productsEntity.getIngredientes().isEmpty()){
+                throw new RuntimeException("Nenhum ingrediente selecionado");
+            }
+
             List<InsumersEntity> insumersEntityList = new ArrayList<>();
 
             createProductDTO.ingredientes().forEach(insumer -> {
-                if (insumer.getId() != null) {
-                    insumer = insumersRepository.findById(insumer.getId()).orElseThrow(() -> new RuntimeException("Insumo não encontrado"));
-                }
+                
+                insumer = insumersRepository.findById(insumer.getId()).orElseThrow(() -> new RuntimeException("Insumo não encontrado"));
                 insumersEntityList.add(insumer);
             });
 
-            ProductsEntity productsEntity = this.createProductMapper.productDtoToProductEntity(createProductDTO);
             productsEntity.setIngredientes(insumersEntityList);
 
             return this.createProductMapper.productEntityToProductDTO(productsRepository.save(productsEntity));
