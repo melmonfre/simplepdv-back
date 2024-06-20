@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restaurant.dtos.CreateProductDTO;
-import com.restaurant.services.useCases.ProductUseCase;
+import com.restaurant.services.productService;
 
 @RestController
 @RequestMapping("/product")
 public class ProductController {
 
     @Autowired
-    private ProductUseCase productUseCase;
+    private productService productService;
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody @Validated CreateProductDTO createProductDTO){
         try{
           
 
-          var result =   this.productUseCase.create(createProductDTO);
+          var result =   this.productService.create(createProductDTO);
 
           return ResponseEntity.ok().body(result);
 
