@@ -1,4 +1,4 @@
 package com.restaurant.controllers;
 
-public class TestController {
+public class TestesController {
 }

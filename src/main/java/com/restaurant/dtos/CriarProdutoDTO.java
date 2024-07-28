@@ -1,15 +1,15 @@
 package com.restaurant.dtos;
 
-import com.restaurant.models.InsumersEntity;
+import com.restaurant.models.InsumosEntity;
 
 import java.util.List;
 
 
-public record CreateProductDTO(
+public record CriarProdutoDTO(
         String nome,
         double precoCusto,
         double precoVenda,
-        List<InsumersEntity> ingredientes,
+        List<InsumosEntity> ingredientes,
         String medida,
         String categoria
 ) {

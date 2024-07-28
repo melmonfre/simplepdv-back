@@ -6,9 +6,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table (name = "insumers")
+@Table (name = "insumos")
 @Data
-public class InsumersEntity {
+public class InsumosEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

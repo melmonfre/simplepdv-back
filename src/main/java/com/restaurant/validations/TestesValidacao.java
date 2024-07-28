@@ -1,4 +1,4 @@
 package com.restaurant.validations;
 
-public class TestValidation {
+public class TestesValidacao {
 }
