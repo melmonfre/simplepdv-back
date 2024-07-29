@@ -1,4 +1,4 @@
 package com.restaurant.utils;
 
-public class TestUtil {
+public class TestesUtilitarios {
 }

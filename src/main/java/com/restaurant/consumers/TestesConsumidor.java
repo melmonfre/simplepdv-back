@@ -1,4 +1,4 @@
 package com.restaurant.consumers;
 
-public class TestConsumer {
+public class TestesConsumidor {
 }

@@ -8,24 +8,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.restaurant.dtos.CreateProductDTO;
-import com.restaurant.services.productService;
+import com.restaurant.dtos.CriarProdutoDTO;
+import com.restaurant.services.ServicosProdutos;
 
 @RestController
-@RequestMapping("/product")
-public class ProductController {
+@RequestMapping("/produto")
+public class ProdutosController {
 
     @Autowired
-    private productService productService;
+    private ServicosProdutos ServicosProdutos;
 
-    @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody @Validated CreateProductDTO createProductDTO){
+    @PostMapping("/criar")
+    public ResponseEntity<?> criar(@RequestBody @Validated CriarProdutoDTO criarProdutoDTO){
         try{
           
 
-          var result =   this.productService.create(createProductDTO);
+          var resultado =   this.ServicosProdutos.criar(criarProdutoDTO);
 
-          return ResponseEntity.ok().body(result);
+          return ResponseEntity.ok().body(resultado);
 
         }catch(Exception exception){
             return ResponseEntity.badRequest().body(exception);

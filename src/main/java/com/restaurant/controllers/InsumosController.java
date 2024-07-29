@@ -8,22 +8,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.restaurant.dtos.CreateInsumerDTO;
-import com.restaurant.services.InsumerService;
+import com.restaurant.dtos.CriarInsumoDTO;
+import com.restaurant.services.ServicosInsumos;
 
 @RestController
-@RequestMapping("/insumer")
-public class InsumerController {
+@RequestMapping("/insumo")
+public class InsumosController {
    
     @Autowired
-    private InsumerService insumerService;
+    private ServicosInsumos servicosInsumos;
 
-    @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody @Validated CreateInsumerDTO createInsumerDTO){
+    @PostMapping("/criar")
+    public ResponseEntity<?> criar(@RequestBody @Validated CriarInsumoDTO criarInsumoDTO){
        
         try {
-            CreateInsumerDTO result = this.insumerService.create(createInsumerDTO);
-            return ResponseEntity.ok().body(result);
+            CriarInsumoDTO resultado = this.servicosInsumos.criar(criarInsumoDTO);
+            return ResponseEntity.ok().body(resultado);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

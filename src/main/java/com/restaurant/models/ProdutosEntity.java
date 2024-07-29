@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "products")
+@Table(name = "produtos")
 @Data
-public class ProductsEntity {
+public class ProdutosEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,13 +28,13 @@ public class ProductsEntity {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "insumer_id")
     )
-    private List<InsumersEntity> ingredientes = new ArrayList<>();
+    private List<InsumosEntity> ingredientes = new ArrayList<>();
     @Enumerated(EnumType.STRING)
     private Medida medida;
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
-    public void addIngrediente(InsumersEntity insumersEntity) {
-        this.ingredientes.add(insumersEntity);
+    public void addIngrediente(InsumosEntity insumosEntity) {
+        this.ingredientes.add(insumosEntity);
     }
 }

@@ -1,6 +1,5 @@
 spring:
-  profiles:
-    active: test  # Para utilizar o perfil de testes (com h2) basta alterar para "test", se quiser utilizar em produção (postgres) altere para "prod"
-  flyway:
-    enabled: true
-    validate-on-migrate: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

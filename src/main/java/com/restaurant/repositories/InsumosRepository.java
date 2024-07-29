@@ -1,10 +1,9 @@
 package com.restaurant.repositories;
 
-import com.restaurant.models.ProductsEntity;
+import com.restaurant.models.InsumosEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductsRepository
-        extends JpaRepository<ProductsEntity, Long> {
+public interface InsumosRepository extends JpaRepository<InsumosEntity, Long> {
 }

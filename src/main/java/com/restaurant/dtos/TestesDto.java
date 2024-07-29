@@ -1,4 +1,4 @@
 package com.restaurant.dtos;
 
-public class TestDto {
+public class TestesDto {
 }

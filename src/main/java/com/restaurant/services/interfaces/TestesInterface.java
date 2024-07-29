@@ -1,4 +1,4 @@
 package com.restaurant.services.interfaces;
 
-public class TestInterface {
+public class TestesInterface {
 }

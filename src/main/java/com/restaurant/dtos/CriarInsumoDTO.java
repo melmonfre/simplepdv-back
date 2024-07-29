@@ -1,6 +1,6 @@
 package com.restaurant.dtos;
 
-public record CreateInsumerDTO(
+public record CriarInsumoDTO(
         double preco,
         String nome,
         String medida,
