@@ -14,9 +14,9 @@ public class EstoqueEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //Restaurante
-    private Long idProduto;
-    private Long idInsumos;
-    private String quantidadeMinima;
-    private String quantidadeAtual;
+    private ProdutosEntity produto;
+    private InsumosEntity insumo;
+    private double quantidadeMinima;
+    private double quantidadeAtual;
     private LocalDateTime atualizacao;
 }
