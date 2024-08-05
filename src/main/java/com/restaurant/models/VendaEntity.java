@@ -12,7 +12,7 @@ public class VendaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //Restaurante
+    private RestauranteEntity restaurante;
     private FuncionarioEntity funcionario;
     private List<ProdutosEntity> produtos;
     private Double somaTotalDaListaDeProdutos;

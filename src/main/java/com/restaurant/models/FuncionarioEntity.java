@@ -13,7 +13,7 @@ public class FuncionarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //Restaurante
+    private RestauranteEntity restaurante;
     private String nome;
     private String email;
     private String senha;

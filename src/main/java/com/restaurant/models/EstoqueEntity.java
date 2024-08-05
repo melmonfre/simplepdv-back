@@ -13,7 +13,7 @@ public class EstoqueEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //Restaurante
+    private RestauranteEntity restaurante;
     private ProdutosEntity produto;
     private InsumosEntity insumo;
     private double quantidadeMinima;
