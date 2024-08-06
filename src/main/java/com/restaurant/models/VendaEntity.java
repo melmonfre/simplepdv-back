@@ -12,8 +12,15 @@ public class VendaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
     private RestauranteEntity restaurante;
+    @ManyToOne
     private FuncionarioEntity funcionario;
+    @ManyToMany
+    @JoinTable(
+    name = ("venda_produto"),
+    joinColumns = @JoinColumn(name = "vendas_entity"),
+    inverseJoinColumns = @JoinColumn(name = "produtos_entity"))
     private List<ProdutosEntity> produtos;
     private Double somaTotalDaListaDeProdutos;
     @Enumerated(EnumType.STRING)
