@@ -1,9 +1,6 @@
 package com.restaurant.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -13,8 +10,11 @@ public class EstoqueEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
     private RestauranteEntity restaurante;
+    @ManyToOne
     private ProdutosEntity produto;
+    @ManyToOne
     private InsumosEntity insumo;
     private double quantidadeMinima;
     private double quantidadeAtual;

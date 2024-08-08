@@ -13,6 +13,7 @@ public class InsumosEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
     private RestauranteEntity restaurante;
     private double preco;
     private String nome;
