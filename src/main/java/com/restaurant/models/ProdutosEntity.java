@@ -16,6 +16,7 @@ public class ProdutosEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
     private RestauranteEntity restaurante;
     private String nome;
     @Column(name = "preco_custo")

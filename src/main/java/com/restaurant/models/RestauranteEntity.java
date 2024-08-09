@@ -1,11 +1,12 @@
 package com.restaurant.models;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
+@Entity
+@Data
 public class RestauranteEntity {
 
     @Id
@@ -18,9 +19,19 @@ public class RestauranteEntity {
     private String senha;
     private String endereco;
     private String CNPJ;
+
+    @OneToMany(mappedBy = "restaurante")
     private List<FuncionarioEntity> funcionarios;
+
+    @OneToMany(mappedBy = "restaurante")
     private List<ProdutosEntity> cardapio;
+
+    @OneToMany(mappedBy = "restaurante")
     private List<InsumosEntity> insumos;
+
+    @OneToMany(mappedBy = "restaurante")
     private List<VendaEntity> vendas;
+
+    @OneToMany(mappedBy = "restaurante")
     private List<EstoqueEntity> itensEmEstoque;
 }
