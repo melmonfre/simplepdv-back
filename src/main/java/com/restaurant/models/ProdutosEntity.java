@@ -1,5 +1,7 @@
 package com.restaurant.models;
 
+import com.restaurant.dtos.CriarProdutoDTO;
+import com.restaurant.dtos.DetalheProduto;
 import com.restaurant.models.Enums.Categoria;
 import com.restaurant.models.Enums.Medida;
 import jakarta.persistence.*;
@@ -38,5 +40,26 @@ public class ProdutosEntity {
 
     public void addIngrediente(InsumosEntity insumosEntity) {
         this.ingredientes.add(insumosEntity);
+    }
+
+    public void alteraProduto(DetalheProduto dto){
+        if (dto.restaurante() != null){
+            this.restaurante = dto.restaurante();
+        }
+        if (dto.nome() != null){
+            this.nome = dto.nome();
+        }
+        if (dto.precoCusto() != null){
+            this.precoCusto = dto.precoCusto();
+        }
+        if (dto.precoVenda() != null){
+            this.precoVenda = dto.precoVenda();
+        }
+        if (dto.medida() != null){
+            this.medida = dto.medida();
+        }
+        if (dto.categoria() != null){
+            this.categoria = dto.categoria();
+        }
     }
 }
