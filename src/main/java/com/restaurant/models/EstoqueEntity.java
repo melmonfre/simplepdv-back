@@ -16,7 +16,7 @@ public class EstoqueEntity {
     private ProdutosEntity produto;
     @ManyToOne
     private InsumosEntity insumo;
-    private double quantidadeMinima;
-    private double quantidadeAtual;
+    private Double quantidadeMinima;
+    private Double quantidadeAtual;
     private LocalDateTime atualizacao;
 }

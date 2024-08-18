@@ -26,7 +26,7 @@ public class ServicosVenda {
     @Autowired
     private VendaMapper vendaMapper;
 
-    public DetalheVendaDTO criar(CriarVendaDTO vendaDTO) {
+    public DetalheVendaDTO criarVenda(CriarVendaDTO vendaDTO) {
         try {
             VendaEntity vendaEntity = vendaMapper.criarVendaDtoParaVendaEntity(vendaDTO);
 
@@ -48,34 +48,35 @@ public class ServicosVenda {
         }
     }
 
-    public List<DetalheVendaDTO> listar() {
+    public List<DetalheVendaDTO> listarVendas() {
         return vendaRepository.findAll()
                 .stream()
                 .map(vendaMapper::vendaEntityParaDetalheVendaDto)
                 .toList();
     }
 
-    public DetalheVendaDTO pegarPorId(Long id) {
+    public DetalheVendaDTO pegarVendaPorId(Long id) {
         return vendaMapper.vendaEntityParaDetalheVendaDto(vendaRepository.findById(id).orElseThrow(() -> new RuntimeException("Registro não encontrado")));
     }
 
-    public DetalheVendaDTO editar(Long id, CriarVendaDTO vendaDTO) {
+    public DetalheVendaDTO editarVenda(Long id, CriarVendaDTO vendaDTO) {
         return vendaRepository.findById(id).map(vendaAtual -> {
-            vendaAtual.setRestaurante(vendaDTO.restaurante());
-            vendaAtual.setFuncionario(vendaDTO.funcionario());
-            vendaAtual.setProdutos(vendaDTO.produtosEntities());
-            vendaAtual.setSomaTotalDaListaDeProdutos(somaProdutosVenda(vendaDTO.produtosEntities()));
-            vendaAtual.setFormaDePagamento(vendaDTO.formaDePagamento());
+            if(vendaDTO.restaurante() != null) vendaAtual.setRestaurante(vendaDTO.restaurante());
+            if(vendaDTO.funcionario() != null) vendaAtual.setFuncionario(vendaDTO.funcionario());
+            if(vendaDTO.produtosEntities() != null && !vendaDTO.produtosEntities().isEmpty()) vendaAtual.setProdutos(vendaDTO.produtosEntities());
+            Double somaTotalVenda = somaProdutosVenda(vendaDTO.produtosEntities());
+            if(somaTotalVenda != null) vendaAtual.setSomaTotalDaListaDeProdutos(somaTotalVenda);
+            if(vendaDTO.formaDePagamento() != null) vendaAtual.setFormaDePagamento(vendaDTO.formaDePagamento());
 
             return vendaMapper.vendaEntityParaDetalheVendaDto(vendaRepository.save(vendaAtual));
         }).orElseThrow(() -> new RuntimeException("Registro não encontrado"));
     }
 
-    public void excluir(Long id) {
+    public void excluirVenda(Long id) {
         vendaRepository.delete(vendaRepository.findById(id).orElseThrow(() -> new RuntimeException("Registro não encontrado")));
     }
 
-    private double somaProdutosVenda(List<ProdutosEntity> produtos) {
+    private Double somaProdutosVenda(List<ProdutosEntity> produtos) {
         return produtos.stream()
                 .map(ProdutosEntity::getPrecoVenda)
                 .reduce(0.0, Double::sum);

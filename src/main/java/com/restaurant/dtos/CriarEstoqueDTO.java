@@ -8,7 +8,7 @@ public record CriarEstoqueDTO(
         RestauranteEntity restaurante,
         ProdutosEntity produtosEntity,
         InsumosEntity insumosEntity,
-        double quantidadeMinima,
-        double quantidadeAtual
+        Double quantidadeMinima,
+        Double quantidadeAtual
 ) {
 }
