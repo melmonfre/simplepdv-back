@@ -8,7 +8,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface EstoqueMapper {
     CriarEstoqueDTO estoqueEntityParaCriarEstoqueDto(EstoqueEntity estoqueEntity);
-    EstoqueEntity criarEstoqueDtoParaEstoqueEntity(CriarEstoqueDTO criarEstoqueDTO);
+    EstoqueEntity criarEstoqueDtoParaEstoqueEntity(DetalheEstoqueDTO criarEstoqueDTO);
 
     DetalheEstoqueDTO estoqueEntityParaDetalheEstoqueDto(EstoqueEntity estoqueEntity);
 

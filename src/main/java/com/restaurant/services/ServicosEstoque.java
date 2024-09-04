@@ -20,9 +20,8 @@ public class ServicosEstoque {
     @Autowired
     private EstoqueMapper estoqueMapper;
 
-    public DetalheEstoqueDTO criarEstoque(CriarEstoqueDTO estoqueDTO){
+    public DetalheEstoqueDTO criarEstoque(DetalheEstoqueDTO estoqueDTO){
         try {
-
             EstoqueEntity estoqueEntity = estoqueMapper.criarEstoqueDtoParaEstoqueEntity(estoqueDTO);
             estoqueEntity.setAtualizacao(LocalDateTime.now());
 

@@ -1,7 +1,6 @@
 package com.restaurant.services;
 
 import com.restaurant.dtos.CriarProdutoDTO;
-import com.restaurant.dtos.DetalheInsumo;
 import com.restaurant.dtos.DetalheProduto;
 import com.restaurant.dtos.mapper.CriarProtudoMapper;
 import com.restaurant.models.InsumosEntity;
@@ -9,7 +8,6 @@ import com.restaurant.models.ProdutosEntity;
 import com.restaurant.repositories.InsumosRepository;
 import com.restaurant.repositories.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
