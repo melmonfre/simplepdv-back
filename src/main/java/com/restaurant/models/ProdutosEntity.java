@@ -1,6 +1,5 @@
 package com.restaurant.models;
 
-import com.restaurant.dtos.CriarProdutoDTO;
 import com.restaurant.dtos.DetalheProduto;
 import com.restaurant.models.Enums.Categoria;
 import com.restaurant.models.Enums.Medida;
